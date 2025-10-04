@@ -6,20 +6,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 
-// verificando se tem cargo e caso não for adm impedindo as rotas de adm
-if (!isset($_SESSION["cargo"]) || $_SESSION["cargo"] == 0) {
-    $rota = $_GET['url'] ?? ''; // rota atual
-
-    // rotas que o usuario comum pode acessar
-    if ($rota != "login" &&
-        $rota != ""
-    ) {
-        $_SESSION['resposta'] = "Acesso negado!";
-        header("Location: " . BASE_URL);
-        exit();
-    }
-}
-
 if (!isset($_SESSION["id"]) && !isset($_SESSION["nome"]) && !isset($_SESSION["email"])) {
     session_unset();
     session_destroy();
@@ -27,15 +13,15 @@ if (!isset($_SESSION["id"]) && !isset($_SESSION["nome"]) && !isset($_SESSION["em
     exit();
 } else {
     $id = $_SESSION["id"];
-    $stmt = $conexao->prepare("SELECT nome, email, cargo FROM usuarios WHERE id = ?");
+    $stmt = $conexao->prepare("SELECT nome, email FROM adm WHERE id = ?");
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        $stmt->bind_result($nome, $email, $cargo);
+        $stmt->bind_result($nome, $email);
         $stmt->fetch();
         $stmt->close();
 
-        if (($nome === null) || ($email === null) || ($cargo === null)) {
+        if (($nome === null) || ($email === null)) {
             session_unset();
             session_destroy();
             header("Location: " . BASE_URL);
@@ -43,7 +29,6 @@ if (!isset($_SESSION["id"]) && !isset($_SESSION["nome"]) && !isset($_SESSION["em
         } else {
             $_SESSION["nome"] = $nome;
             $_SESSION["email"] = $email;
-            $_SESSION["cargo"] = $cargo;
         }
     } else {
         $_SESSION['resposta'] = "Erro inesperado!";

@@ -1,5 +1,7 @@
 <?php
+// Definir fuso horário
 date_default_timezone_set('America/Sao_Paulo');
+
 $rota = $_GET['url'] ?? ''; // rota atual
 
 // verificando se precisa incluir o valida ou não
@@ -19,9 +21,9 @@ if (isset($n_valida) && $n_valida == true) {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link href="<?= BASE_URL ?>assets/css/output.css?v=<?= time() ?>" rel="stylesheet">
-        <title><?= htmlspecialchars((isset($titulo) ? $titulo . " • SGAC" : 'SGAC')) ?></title>
+        <title><?= htmlspecialchars((isset($titulo) ? "SGAC • " . $titulo : 'SGAC')) ?></title>
     </head>
-    <body>
+<body <?= (isset($rota) && $rota == '') ? 'class="flex-col"' : '' ?>>
 <?php
 // removendo o menu das paginas de eventos e o formulario de login
 if (isset($_SESSION['id']) && $rota !== '' && $rota !== 'login') {

@@ -1,14 +1,23 @@
 @layer components {
-  .menu-layer {
-    @apply fixed top-0 left-0 z-40 h-full w-64 translate-x-0 bg-white shadow-xl transition-transform duration-300;
-  }
-  .menu-itens {
-    @apply flex w-full items-center space-x-3 px-6 py-3 text-left text-gray-600 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900;
-  }
-  .menu-itens-active {
-    @apply flex w-full items-center space-x-3 border-r-2 border-blue-600 bg-gradient-to-r from-blue-50 to-green-50 px-6 py-3 text-left text-blue-600 transition-colors duration-200;
-  }
-  .icon-degrade {
-    @apply flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-green-500;
-  }
+    .menu-layer {
+        @apply h-full w-64 translate-x-0 bg-white shadow-xl transition-transform duration-300;
+    }
+
+    .menu-itens {
+        @apply flex w-full items-center space-x-3 px-6 py-3 text-left text-texto-opaco hover:bg-gray-50
+        hover:text-texto-opaco-hover;
+
+        & i {
+            @apply text-xl;
+        }
+
+        &.active {
+            @apply flex w-full items-center space-x-3 border-r-2 border-azul bg-gradient-to-r from-azul/5
+            to-verde/5 px-6 py-3 text-left text-azul transition-colors duration-200;
+        }
+    }
+
+    .icon-degrade {
+        @apply flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-azul to-verde;
+    }
 }

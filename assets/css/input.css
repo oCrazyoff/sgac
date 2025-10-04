@@ -1,2 +1,42 @@
 @import "tailwindcss";
 @import "./menu.css";
+@import "./div_erro.css";
+@import "./eventos.css";
+
+/* variaveis */
+@theme {
+    --color-verde: #00C46A;
+    --color-azul: #2A80FF;
+    --color-texto-opaco: #656565;
+    --color-texto-opaco-hover: #2d2d2d;
+    --color-borda: #cfcfcf;
+}
+
+@layer base {
+    * {
+        transition: background-color 0.3s ease,
+        color 0.1s ease,
+        opacity 0.3s ease,
+        scale 0.2s ease,
+        box-shadow 0.3s ease;
+        /*outline: 1px solid red;*/
+    }
+
+    body {
+        @apply flex h-dvh w-full;
+
+        & main {
+            @apply p-5 overflow-auto;
+        }
+    }
+}
+
+@layer components {
+    .titulo {
+        @apply flex flex-col gap-2 text-2xl font-bold;
+
+        & span {
+            @apply font-normal text-xl text-texto-opaco;
+        }
+    }
+}

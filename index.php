@@ -9,6 +9,13 @@ $routes = [
     // autenticação
     'login' => 'pages/login_form.php',
     'fazer_login' => 'backend/auth/login.php',
+
+    // rotas do usuario adm
+    'adm/doacoes' => 'adm/doacoes.php',
+    'adm/eventos' => 'adm/eventos.php',
+    'adm/presenca' => 'adm/presenca.php',
+    'adm/relatorios' => 'adm/relatorios.php',
+    'adm/voluntarios' => 'adm/voluntarios.php',
 ];
 
 if (array_key_exists($url, $routes)) {
