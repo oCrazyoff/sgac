@@ -33,8 +33,8 @@
         </a>
     </nav>
     <div class="absolute bottom-6 left-6 right-6 space-y-4">
-        <div class="bg-gray-50 rounded-lg p-3">
-            <div class="flex items-center justify-center space-x-3">
+        <div class="bg-gray-50 rounded-lg">
+            <div class="flex items-center justify-start space-x-3">
                 <div class="icon-degrade">
                     <i class="bi bi-person text-white text-xl"></i>
                 </div>
