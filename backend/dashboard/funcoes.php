@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 function voluntarios_cadastrados() {
     global $conexao;
 

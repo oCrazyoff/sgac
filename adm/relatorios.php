@@ -1,5 +1,5 @@
 <?php
-$titulo = "Eventos";
+$titulo = "Relatórios";
 require_once __DIR__ . "/../includes/inicio.php";
 require_once __DIR__ . "/../backend/dashboard/funcoes.php";
 ?>

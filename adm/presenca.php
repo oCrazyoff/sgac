@@ -1,5 +1,5 @@
 <?php
-$titulo = "Eventos";
+$titulo = "Presença";
 require_once __DIR__ . "/../includes/inicio.php";
 ?>
 <main>

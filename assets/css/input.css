@@ -2,6 +2,7 @@
 @import "./menu.css";
 @import "./div_erro.css";
 @import "./eventos.css";
+@import "./modal.css";
 
 /* variaveis */
 @theme {
@@ -26,17 +27,37 @@
         @apply flex h-dvh w-full;
 
         & main {
-            @apply p-5 overflow-auto;
+            @apply p-5 w-full overflow-y-auto;
         }
     }
 }
 
 @layer components {
     .titulo {
-        @apply flex flex-col gap-2 text-2xl font-bold;
+        @apply flex flex-col gap-2 text-2xl font-bold mb-5;
 
         & span {
             @apply font-normal text-xl text-texto-opaco;
+        }
+    }
+
+    .subtitulo {
+        @apply flex items-center justify-between;
+
+        & h3 {
+            @apply flex flex-col text-xl;
+
+            & span {
+                @apply text-lg text-texto-opaco;
+            }
+        }
+
+        & button {
+            @apply rounded-lg p-2 text-white bg-gradient-to-r from-azul to-verde cursor-pointer;
+
+            &:hover {
+                @apply opacity-80;
+            }
         }
     }
 }

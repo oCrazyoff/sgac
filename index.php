@@ -16,6 +16,9 @@ $routes = [
     'adm/presenca' => 'adm/presenca.php',
     'adm/relatorios' => 'adm/relatorios.php',
     'adm/voluntarios' => 'adm/voluntarios.php',
+
+    // rotas de busca
+    'buscar_voluntarios' => 'backend/buscar/voluntarios.php',
 ];
 
 if (array_key_exists($url, $routes)) {

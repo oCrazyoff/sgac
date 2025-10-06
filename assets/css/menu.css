@@ -1,6 +1,6 @@
 @layer components {
     .menu-layer {
-        @apply h-full w-64 translate-x-0 bg-white shadow-xl transition-transform duration-300;
+        @apply h-full w-64 translate-x-0 bg-white shadow-xl;
     }
 
     .menu-itens {
@@ -13,7 +13,7 @@
 
         &.active {
             @apply flex w-full items-center space-x-3 border-r-2 border-azul bg-gradient-to-r from-azul/5
-            to-verde/5 px-6 py-3 text-left text-azul transition-colors duration-200;
+            to-verde/5 px-6 py-3 font-bold text-left text-azul;
         }
     }
 
