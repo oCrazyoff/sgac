@@ -3,9 +3,9 @@ $titulo = "Eventos";
 require_once __DIR__ . "/../includes/inicio.php";
 ?>
 <main>
-    <h2 class="titulo">
+    <h1 class="titulo">
         Eventos
         <span id="data_atual"></span>
-    </h2>
+    </h1>
 </main>
 <?php require_once __DIR__ . "/../includes/fim.php"; ?>
