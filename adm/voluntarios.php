@@ -43,7 +43,7 @@ $stmt->close();
                             <i class="bi bi-pencil"></i>
                         </button>
                         <!--deletar-->
-                        <form action="deletar_voluntario" method="POST">
+                        <form action="deletar_voluntarios" method="POST">
                             <!--csrf-->
                             <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
                             <input type="hidden" name="id" id="id" value="<?= htmlspecialchars($row['id']) ?>">
@@ -59,7 +59,6 @@ $stmt->close();
             <h3>Nenhum voluntario encontrado</h3>
         </div>
     <?php endif; ?>
-
 </main>
 <?php $tipo_modal = "voluntarios"; ?>
 <?php require_once __DIR__ . "/../includes/modal.php"; ?>
