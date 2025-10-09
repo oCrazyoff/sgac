@@ -26,13 +26,43 @@
 
                 <?php elseif
 
-                    // modal de eventos (falta fazer)
+                    // modal de eventos
                 ($tipo_modal == 'eventos'): ?>
 
                     <!--conteudo formulário-->
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" class="input-modal" placeholder="Nome da categoria"
+                    <label for="link_img">Link Imagem</label>
+                    <input type="text" name="link_img" id="link_img" class="input-modal" placeholder="Link da Imagem"
                            required>
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" class="input-modal" placeholder="Nome do evento"
+                           required>
+                    <label for="descricao">Descrição</label>
+                    <textarea name="descricao" id="descricao" class="input-modal"
+                              placeholder="Descrição do evento"></textarea>
+                    <label for="tipo">Tipo do evento</label>
+                    <input type="text" name="tipo" id="tipo" class="input-modal" placeholder="Tipo do evento"
+                           required>
+                    <label for="status">Status do evento</label>
+                    <select name="status" id="status" class="input-modal">
+                        <option value="0">Publicado</option>
+                        <option value="1">Concluido</option>
+                        <option value="2">Cancelado</option>
+                    </select>
+                    <label for="data_hora">Data e Hora do evento</label>
+                    <input type="datetime-local" name="data_hora" id="data_hora" class="input-modal"
+                           value="<?= date('Y-m-d\TH:i') ?>" required>
+                    <label for="endereco">Endereço</label>
+                    <input type="text" name="endereco" id="endereco" class="input-modal"
+                           placeholder="Ex: Rua de Caxias..."
+                           required>
+                    <label for="meta_voluntarios">Meta de voluntários</label>
+                    <input type="number" name="meta_voluntarios" id="meta_voluntarios" class="input-modal"
+                           placeholder="Ex: 20"
+                           required>
+                    <label for="objetivos">Objetivos</label>
+                    <textarea name="objetivos" id="objetivos" class="input-modal"
+                              placeholder="Ex: Plantar 20 árvores em duas praças"></textarea>
+
                 <?php endif; ?>
             <?php endif; ?>
             <div class="grid grid-cols-3 gap-2 mt-5">

@@ -19,15 +19,19 @@ $routes = [
 
     // rotas de busca
     'buscar_voluntarios' => 'backend/buscar/voluntarios.php',
+    'buscar_eventos' => 'backend/buscar/eventos.php',
 
     // rotas de cadastro
     'adm/cadastrar_voluntarios' => 'backend/cadastrar/voluntarios.php',
+    'adm/cadastrar_eventos' => 'backend/cadastrar/eventos.php',
 
     // rotas de edição
     'adm/editar_voluntarios' => 'backend/editar/voluntarios.php',
+    'adm/editar_eventos' => 'backend/editar/eventos.php',
 
     // rotas de deletar
     'adm/deletar_voluntarios' => 'backend/deletar/voluntarios.php',
+    'adm/deletar_eventos' => 'backend/deletar/eventos.php',
 ];
 
 if (array_key_exists($url, $routes)) {

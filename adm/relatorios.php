@@ -11,10 +11,10 @@ $resultado = $stmt->get_result();
 $stmt->close();
 ?>
 <main>
-    <h1 class="titulo">
+    <h2 class="titulo">
         Relatórios
         <span id="data_atual"></span>
-    </h1>
+    </h2>
     <div class="grid grid-cols-4 gap-5 mt-5">
         <div class="card">
             <div class="flex items-center justify-between w-full">

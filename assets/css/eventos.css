@@ -1,3 +1,52 @@
-.interface {
-    @apply mx-auto max-w-[1280px] w-full px-3 lg:px-5 py-2;
+@layer components {
+    .card-eventos {
+        @apply flex flex-col items-center justify-between overflow-hidden border border-borda rounded-lg shadow-lg;
+
+        & .img-container {
+            @apply relative w-full h-40 border-b border-borda;
+
+            & img {
+                @apply h-full w-full object-cover;
+            }
+
+            & .tag-status {
+                @apply absolute top-5 left-5 text-sm px-2 bg-gray-100 rounded-full shadow-lg;
+            }
+
+            & .tag-tipo {
+                @apply absolute top-5 right-5 text-sm px-2 bg-gray-100 rounded-full shadow-lg;
+            }
+        }
+
+        & .txt-card {
+            @apply p-5;
+
+            & h2 {
+                @apply text-xl font-bold;
+            }
+
+            & .descricao {
+                @apply mb-5;
+            }
+
+            & p {
+                @apply text-lg text-texto-opaco;
+
+                & i {
+                    @apply text-azul mr-2;
+                }
+            }
+
+            & .container-barra {
+                @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden;
+
+                & .barra{
+                    @apply bg-gradient-to-r from-azul to-verde h-full rounded-full;
+                }
+            }
+        }
+        & .container-opcoes{
+            @apply flex items-center justify-end gap-5 px-5 py-3 w-full border-t border-borda;
+        }
+    }
 }
