@@ -33,20 +33,18 @@
         </a>
     </nav>
     <div class="absolute bottom-6 left-6 right-6 space-y-4">
-        <div class="bg-gray-50 rounded-lg">
-            <div class="flex items-center justify-start space-x-3">
-                <div class="icon-degrade">
-                    <i class="bi bi-person text-white text-xl"></i>
-                </div>
-                <div>
-                    <div class="flex-1">
-                        <p class="text-sm font-medium text-gray-700">
-                            <?= htmlspecialchars($_SESSION['nome']) ?>
-                        </p>
-                        <p class="text-xs text-gray-500">
-                            Administrador
-                        </p>
-                    </div>
+        <div class="flex items-center justify-start space-x-3 bg-gray-50 rounded-lg">
+            <div class="icon-degrade">
+                <i class="bi bi-person text-white text-xl"></i>
+            </div>
+            <div>
+                <div class="flex-1">
+                    <p class="text-sm font-medium text-gray-700">
+                        <?= htmlspecialchars($_SESSION['nome']) ?>
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Administrador
+                    </p>
                 </div>
             </div>
         </div>
