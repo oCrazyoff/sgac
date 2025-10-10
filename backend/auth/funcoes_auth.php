@@ -48,7 +48,8 @@ function validarTelefone($telefone)
     // Formata o número
     if (strlen($telefone) == 11) {
         // Formato (XX) 9XXXX-XXXX
-        $telefone = sprintf('(%s) %s %s-%s',
+        $telefone = sprintf(
+            '(%s) %s %s-%s',
             substr($telefone, 0, 2),
             substr($telefone, 2, 1),
             substr($telefone, 3, 4),
@@ -56,7 +57,8 @@ function validarTelefone($telefone)
         );
     } else {
         // Formato (XX) XXXX-XXXX
-        $telefone = sprintf('(%s) %s-%s',
+        $telefone = sprintf(
+            '(%s) %s-%s',
             substr($telefone, 0, 2),
             substr($telefone, 2, 4),
             substr($telefone, 6)
@@ -74,4 +76,3 @@ function validarSenha($senha)
 
     return true;
 }
-?>
