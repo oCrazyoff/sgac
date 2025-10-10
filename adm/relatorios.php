@@ -3,7 +3,7 @@ $titulo = "Relatórios";
 require_once __DIR__ . "/../includes/inicio.php";
 require_once __DIR__ . "/../backend/dashboard/funcoes.php";
 
-// puxando todos os voluntarios
+// puxando todos os voluntarios (código original mantido)
 $sql = "SELECT id, nome, email, telefone, habilidades FROM voluntarios";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
@@ -11,11 +11,14 @@ $resultado = $stmt->get_result();
 $stmt->close();
 ?>
 <main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <h2 class="titulo">
         Relatórios
         <span id="data_atual"></span>
     </h2>
-    <div class="grid grid-cols-4 gap-5 mt-5">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
         <div class="card">
             <div class="flex items-center justify-between w-full">
                 <span
@@ -64,39 +67,101 @@ $stmt->close();
                 <p class="text-base text-texto-opaco">Voluntário Mais Ativo</p>
             </div>
         </div>
+        <div class="card col-span-2 h-96">
+            <h3 class="text-lg font-semibold mb-4 text-texto-preto">Participação Mensal</h3>
+            <canvas id="graficoMensal"></canvas>
+        </div>
+        <div class="card col-span-2 h-96">
+            <h3 class="text-lg font-semibold mb-4 text-texto-preto">Tipos de Eventos</h3>
+            <canvas id="graficoTipos"></canvas>
+        </div>
     </div>
-    <p>
-        <?php 
-    $datas = eventos_data();
-    
-    // Verificar se não é uma mensagem de erro
-    if (is_array($datas)) {
-        foreach($datas as $data) {
-            echo htmlspecialchars(formatar_mes($data["mes_ano"])) . " - ";
-            echo htmlspecialchars($data["total"]) . "<br>";
+
+    <script>
+    // Os dados são buscados pelas funções PHP que já foram incluídas no topo da página
+    const dadosMensaisPHP = <?php echo eventos_data(); ?>;
+    const dadosTiposPHP = <?php echo eventos_tipos(); ?>;
+
+    // Revertemos para ter a ordem cronológica no gráfico (Janeiro, Fevereiro...)
+    dadosMensaisPHP.reverse();
+
+    const labelsMensal = dadosMensaisPHP.map(item => item.mes);
+    const dataMensal = dadosMensaisPHP.map(item => item.total);
+
+    const ctxMensal = document.getElementById('graficoMensal').getContext('2d');
+    new Chart(ctxMensal, {
+        type: 'bar',
+        data: {
+            labels: labelsMensal,
+            datasets: [{
+                label: 'Nº de Eventos',
+                data: dataMensal,
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.8)', // Azul Vibrante
+                    'rgba(75, 192, 192, 0.8)', // Verde Água
+                    'rgba(255, 206, 86, 0.8)', // Amarelo
+                    'rgba(255, 99, 132, 0.8)', // Rosa/Vermelho
+                    'rgba(153, 102, 255, 0.8)', // Roxo
+                    'rgba(255, 159, 64, 0.8)', // Laranja
+                    'rgba(10, 163, 129, 0.8)', // Verde Esmeralda
+                    'rgba(231, 76, 60, 0.8)', // Vermelho Tomate
+                    'rgba(52, 73, 94, 0.8)', // Azul Ardósia
+                    'rgba(243, 156, 18, 0.8)', // Laranja Queimado
+                    'rgba(142, 68, 173, 0.8)', // Roxo Ametista
+                    'rgba(0, 230, 118, 0.8)' // Verde Claro Brilhante
+                ],
+            }]
+        },
+        options: {
+            indexAxis: 'x',
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
         }
-    } else {
-        // Exibir erro se houver
-        echo htmlspecialchars($datas);
-    }
-    ?>
-    </p>
-    <p>
-        <?php 
-    $tipos = eventos_tipos();
-    
-    // Verificar se não é uma mensagem de erro
-    if (is_array($tipos)) {
-        foreach($tipos as $tipo) {
-            echo "Tipo: " . htmlspecialchars($tipo["tipo"]) . " - ";
-            echo "Quantidade: " . htmlspecialchars($tipo["quantidade"]) . "<br>";
+    });
+
+    const labelsTipos = dadosTiposPHP.map(item => item.tipo);
+    const dataTipos = dadosTiposPHP.map(item => item.quantidade);
+
+    const ctxTipos = document.getElementById('graficoTipos').getContext('2d');
+    new Chart(ctxTipos, {
+        type: 'pie',
+        data: {
+            labels: labelsTipos,
+            datasets: [{
+                label: 'Quantidade',
+                data: dataTipos,
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.8)', // Azul Vibrante
+                    'rgba(75, 192, 192, 0.8)', // Verde Água
+                    'rgba(255, 206, 86, 0.8)', // Amarelo
+                    'rgba(255, 99, 132, 0.8)', // Rosa/Vermelho
+                    'rgba(153, 102, 255, 0.8)', // Roxo
+                    'rgba(255, 159, 64, 0.8)', // Laranja
+                    'rgba(10, 163, 129, 0.8)', // Verde Esmeralda
+                    'rgba(231, 76, 60, 0.8)', // Vermelho Tomate
+                    'rgba(52, 73, 94, 0.8)', // Azul Ardósia
+                    'rgba(243, 156, 18, 0.8)', // Laranja Queimado
+                    'rgba(142, 68, 173, 0.8)', // Roxo Ametista
+                    'rgba(0, 230, 118, 0.8)' // Verde Claro Brilhante
+                ],
+                hoverOffset: 4,
+                // radius: '75%'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'right',
+                }
+            },
         }
-    } else {
-        // Exibir erro se houver
-        echo htmlspecialchars($tipos);
-    }
-    ?>
-    </p>
+    });
+    </script>
 
 </main>
 <?php require_once __DIR__ . "/../includes/fim.php"; ?>

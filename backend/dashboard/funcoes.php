@@ -112,7 +112,8 @@ function eventos_tipos() {
         }
         
         $stmt->close();
-        return $tipos; // Retorna array com todos os tipos
+        $json_tipos = json_encode($tipos);
+        return $json_tipos; // Retorna json com todos os tipos
         
         $stmt->close(); 
 
@@ -169,7 +170,7 @@ function eventos_data(){
         global $conexao;
 
     try {
-        $stmt = $conexao->prepare("SELECT DATE_FORMAT(data_hora, '%m') as mes_ano, COUNT(*) as total FROM eventos GROUP BY DATE_FORMAT(data_hora, '%m') ORDER BY mes_ano DESC");
+        $stmt = $conexao->prepare("SELECT DATE_FORMAT(data_hora, '%m') as mes_ano, COUNT(*) as total FROM eventos WHERE YEAR(data_hora) = YEAR(CURDATE()) GROUP BY DATE_FORMAT(data_hora, '%m') ORDER BY mes_ano DESC");
         if (!$stmt) {
         throw new Exception("Erro ao preparar a consulta: " . $conexao->error);
         }
@@ -182,11 +183,15 @@ function eventos_data(){
         $datas = [];
 
         while($row = $resultado->fetch_assoc()){
-            $datas[] = $row; // Adiciona cada resultado ao array
+            $datas[] = [
+                'mes' => htmlspecialchars(formatar_mes($row["mes_ano"])),
+                'total' => $row["total"]
+            ];
         }
         
         $stmt->close();
-        return $datas; // Retorna array com todos os tipos
+        $json_datas = json_encode($datas);
+        return $json_datas; // Retorna json com todos os tipos
         
         $stmt->close(); 
 
