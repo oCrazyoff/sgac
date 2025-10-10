@@ -1,6 +1,6 @@
 @layer components {
     .card-eventos {
-        @apply flex flex-col items-center justify-between overflow-hidden border border-borda rounded-lg shadow-lg;
+        @apply flex flex-col items-center justify-between overflow-hidden border border-borda rounded-lg shadow-lg bg-white;
 
         & .img-container {
             @apply relative w-full h-40 border-b border-borda;
@@ -19,7 +19,7 @@
         }
 
         & .txt-card {
-            @apply p-5;
+            @apply p-5 w-full;
 
             & h2 {
                 @apply text-xl font-bold;
@@ -40,12 +40,13 @@
             & .container-barra {
                 @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden;
 
-                & .barra{
+                & .barra {
                     @apply bg-gradient-to-r from-azul to-verde h-full rounded-full;
                 }
             }
         }
-        & .container-opcoes{
+
+        & .container-opcoes {
             @apply flex items-center justify-end gap-5 px-5 py-3 w-full border-t border-borda;
         }
     }

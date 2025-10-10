@@ -161,10 +161,6 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
 
         span.textContent = resultado;
     });
-
-    // lógica da barra de progresso
-    const barra = document.querySelector('.barra');
-    const max_voluntarios = barra.clientHeight;
 </script>
 <?php $tipo_modal = "eventos"; ?>
 <?php require_once __DIR__ . "/../includes/modal.php"; ?>
