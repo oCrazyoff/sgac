@@ -1,6 +1,7 @@
 <!--modal-->
 <div id="modal" class="hidden">
     <div id="form-container">
+        <button type="button" class="btn-fechar-modal" onclick="fecharModal()">&times;</button>
         <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
         <form id="modal-form" action="#" method="POST">
             <!--CSRF-->
@@ -14,34 +15,34 @@
                     <!--conteudo do formulario-->
                     <label for="nome">Nome Completo</label>
                     <input type="text" name="nome" id="nome" class="input-modal" placeholder="Digite o nome completo"
-                           required>
+                        required>
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="input-modal" placeholder="Digite o email">
                     <label for="telefone">Telefone</label>
                     <input type="number" name="telefone" id="telefone" class="input-modal"
-                           placeholder="(11) 99999-9999">
+                        placeholder="(11) 99999-9999">
                     <label for="habilidades">Habilidades</label>
                     <input type="text" name="habilidades" id="habilidades" class="input-modal"
-                           placeholder="Cozinhar, Comunicação etc...">
+                        placeholder="Cozinhar, Comunicação etc...">
 
                 <?php elseif
 
-                    // modal de eventos
+                // modal de eventos
                 ($tipo_modal == 'eventos'): ?>
 
                     <!--conteudo formulário-->
                     <label for="link_img">Link Imagem</label>
                     <input type="text" name="link_img" id="link_img" class="input-modal" placeholder="Link da Imagem"
-                           required>
+                        required>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" class="input-modal" placeholder="Nome do evento"
-                           required>
+                        required>
                     <label for="descricao">Descrição</label>
                     <textarea name="descricao" id="descricao" class="input-modal"
-                              placeholder="Descrição do evento"></textarea>
+                        placeholder="Descrição do evento"></textarea>
                     <label for="tipo">Tipo do evento</label>
                     <input type="text" name="tipo" id="tipo" class="input-modal" placeholder="Tipo do evento"
-                           required>
+                        required>
                     <label for="status">Status do evento</label>
                     <select name="status" id="status" class="input-modal">
                         <option value="0">Publicado</option>
@@ -50,23 +51,25 @@
                     </select>
                     <label for="data_hora">Data e Hora do evento</label>
                     <input type="datetime-local" name="data_hora" id="data_hora" class="input-modal"
-                           value="<?= date('Y-m-d\TH:i') ?>" required>
+                        value="<?= date('Y-m-d\TH:i') ?>" required>
                     <label for="endereco">Endereço</label>
                     <input type="text" name="endereco" id="endereco" class="input-modal"
-                           placeholder="Ex: Rua de Caxias..."
-                           required>
+                        placeholder="Ex: Rua de Caxias..."
+                        required>
                     <label for="meta_voluntarios">Meta de voluntários</label>
                     <input type="number" name="meta_voluntarios" id="meta_voluntarios" class="input-modal"
-                           placeholder="Ex: 20"
-                           required>
+                        placeholder="Ex: 20"
+                        required>
                     <label for="objetivos">Objetivos</label>
                     <textarea name="objetivos" id="objetivos" class="input-modal"
-                              placeholder="Ex: Plantar 20 árvores em duas praças"></textarea>
+                        placeholder="Ex: Plantar 20 árvores em duas praças"></textarea>
 
                 <?php endif; ?>
             <?php endif; ?>
-            <div class="grid grid-cols-3 gap-2 mt-5">
-                <button type="submit" class="btn-submit">Enviar</button>
+            <div class="grid grid-cols-2 gap-2 mt-5">
+                <button type="submit" class="btn-submit">
+                    Enviar
+                </button>
                 <button type="button" class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
             </div>
         </form>
@@ -81,9 +84,45 @@
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+    // Helpers para animação
+    function aplicarAnimacaoAbertura(overlayEl, contentEl) {
+        // remove classes de saída e força reflow para reiniciar animação
+        overlayEl.classList.remove('modal-anim-out');
+        contentEl.classList.remove('modal-content-anim-out');
+        // reflow
+        void overlayEl.offsetWidth;
+        overlayEl.classList.add('modal-anim-in');
+        contentEl.classList.add('modal-content-anim-in');
+    }
+
+    function aplicarAnimacaoFechamento(overlayEl, contentEl, onFim) {
+        // remove classes de entrada
+        overlayEl.classList.remove('modal-anim-in');
+        contentEl.classList.remove('modal-content-anim-in');
+        // reflow
+        void overlayEl.offsetWidth;
+        // adiciona classes de saída
+        overlayEl.classList.add('modal-anim-out');
+        contentEl.classList.add('modal-content-anim-out');
+
+        // após animação do conteúdo concluir, esconde e limpa
+        const handleEnd = () => {
+            contentEl.removeEventListener('animationend', handleEnd);
+            overlayEl.classList.add('hidden');
+            // limpeza
+            overlayEl.classList.remove('modal-anim-out');
+            contentEl.classList.remove('modal-content-anim-out');
+            if (typeof onFim === 'function') onFim();
+        };
+        contentEl.addEventListener('animationend', handleEnd, {
+            once: true
+        });
+    }
+
     function abrirCadastrarModal(tabela) {
         const modal = document.getElementById('modal');
         const form = document.getElementById('modal-form');
+        const content = document.getElementById('form-container');
 
         modal.classList.remove('hidden');
         document.getElementById('modal-title').textContent = `Cadastrar ${capitalizarPrimeiraLetra(tabela)}`;
@@ -93,12 +132,16 @@
 
         // altera action do form para o PHP de cadastro
         form.action = `cadastrar_${tabela}`;
+
+        // aplica animação de abertura
+        aplicarAnimacaoAbertura(modal, content);
     }
 
     async function abrirEditarModal(tabela, id) {
         const modal = document.getElementById('modal');
         const form = document.getElementById('modal-form');
         const modalTitle = document.getElementById('modal-title');
+        const content = document.getElementById('form-container');
 
         // Mostrar modal imediatamente
         modal.classList.remove('hidden');
@@ -108,6 +151,9 @@
 
         // Altera action do form
         form.action = `editar_${tabela}?id=${id}`;
+
+        // aplica animação de abertura
+        aplicarAnimacaoAbertura(modal, content);
 
         try {
             // Busca os dados
@@ -127,7 +173,30 @@
         }
     }
 
-    function fecharModal(tabela) {
-        document.getElementById(`modal`).classList.add('hidden');
+    function fecharModal() {
+        const modal = document.getElementById('modal');
+        const content = document.getElementById('form-container');
+        aplicarAnimacaoFechamento(modal, content);
     }
+
+    // Fechar com ESC e clique no backdrop
+    (function initModalListeners() {
+        const modal = document.getElementById('modal');
+        const content = document.getElementById('form-container');
+        if (!modal || !content) return;
+
+        // Clique no backdrop
+        modal.addEventListener('click', (ev) => {
+            if (ev.target === modal) {
+                fecharModal();
+            }
+        });
+
+        // Tecla ESC
+        document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape' && !modal.classList.contains('hidden')) {
+                fecharModal();
+            }
+        });
+    })();
 </script>

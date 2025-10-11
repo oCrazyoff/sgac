@@ -1,49 +1,118 @@
+/* Animações do Modal */
+@keyframes modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modal-content-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}
+
 @layer components {
-    #modal {
-        @apply fixed inset-0 flex items-center justify-center bg-black/60 z-850 w-full;
+  #modal {
+    @apply fixed inset-0 flex items-center justify-center bg-black/60 z-850 w-full;
 
-        & #form-container {
-            @apply bg-white shadow-lg p-5 rounded-lg w-xl max-w-[90vw];
+    & #form-container {
+      @apply relative bg-white shadow-lg p-5 rounded-lg w-xl max-w-[90vw];
 
-            & #modal-form {
-                @apply max-h-[80dvh] overflow-auto px-1;
+      & #modal-form {
+        @apply max-h-[80dvh] overflow-auto px-1;
 
-                & label {
-                    @apply inline-block mt-3;
-                }
-
-                & button {
-                    @apply text-white px-4 py-2 cursor-pointer rounded-lg;
-
-                    &:hover {
-                        @apply opacity-90;
-                    }
-                }
-
-                & .btn-submit {
-                    @apply bg-azul col-span-2;
-                }
-
-                & .btn-cancelar {
-                    @apply bg-white text-black border border-borda;
-
-                    &:hover {
-                        @apply bg-gray-200;
-                    }
-                }
-            }
-
-            & .input-modal {
-                @apply w-full border border-borda p-2 rounded-lg;
-            }
-
-            & textarea.input-modal {
-                @apply min-h-15;
-            }
-
-            & .input-modal option {
-                @apply bg-gray-100;
-            }
+        & label {
+          @apply inline-block mt-3;
         }
+
+        & button {
+          @apply text-white px-4 py-2 cursor-pointer rounded-lg;
+
+          &:hover {
+            @apply opacity-90;
+          }
+        }
+
+        & .btn-submit {
+          @apply bg-azul;
+        }
+
+        & .btn-cancelar {
+          @apply bg-white text-black border border-borda;
+
+          &:hover {
+            @apply bg-gray-200;
+          }
+        }
+      }
+
+      & .input-modal {
+        @apply w-full border border-borda p-2 rounded-lg;
+      }
+
+      & textarea.input-modal {
+        @apply min-h-15;
+      }
+
+      & .input-modal option {
+        @apply bg-gray-100;
+      }
     }
+  }
+
+  /* Animação do Modal */
+  .modal-anim-in {
+    @apply animate-[modal-overlay-in_200ms_cubic-bezier(0.22,1,0.36,1)_forwards];
+  }
+  .modal-anim-out {
+    @apply animate-[modal-overlay-out_160ms_cubic-bezier(0.55,0,0.55,0.2)_forwards];
+  }
+  .modal-content-anim-in {
+    @apply animate-[modal-content-in_220ms_cubic-bezier(0.22,1,0.36,1)_forwards];
+  }
+  .modal-content-anim-out {
+    @apply animate-[modal-content-out_160ms_cubic-bezier(0.55,0,0.55,0.2)_forwards];
+  }
+
+  /* melhora o render das animações */
+  #modal #form-container {
+    @apply will-change-[transform,opacity];
+    transform-origin: center;
+  }
+
+  /* Botão fechar (X) */
+  #modal #form-container .btn-fechar-modal {
+    @apply absolute top-2 right-2.5 w-8 h-8 leading-7 rounded-full border border-black/8 bg-white text-gray-900 text-xl text-center cursor-pointer transition-[background-color,opacity] duration-[120ms] ease-linear;
+  }
+  #modal #form-container .btn-fechar-modal:hover {
+    @apply bg-gray-100;
+  }
 }

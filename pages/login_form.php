@@ -3,7 +3,7 @@ $n_valida = true;
 $titulo = "Login";
 require_once "includes/inicio.php";
 ?>
-<main class="items-center justify-center flex bg-blue-100">
+<main class="items-center justify-center flex bg-blue-50">
     <form action="fazer_login" method="POST" class="flex w-full flex-col items-center justify-center space-y-6 rounded-xl bg-white px-[4%] py-6 shadow-xl/30 lg:w-auto lg:min-w-lg lg:px-6 lg:py-6">
         <!-- csrf -->
         <div class="flex flex-col items-center justify-center gap-2">
