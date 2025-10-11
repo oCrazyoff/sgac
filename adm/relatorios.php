@@ -73,7 +73,9 @@ $stmt->close();
         </div>
         <div class="card col-span-2 h-96">
             <h3 class="text-lg font-semibold mb-4 text-texto-preto">Tipos de Eventos</h3>
-            <canvas id="graficoTipos"></canvas>
+            <div class="w-full h-70">
+                <canvas id="graficoTipos" class="max-h-full"></canvas>
+            </div>
         </div>
     </div>
 
@@ -149,14 +151,13 @@ $stmt->close();
                     'rgba(0, 230, 118, 0.8)' // Verde Claro Brilhante
                 ],
                 hoverOffset: 4,
-                // radius: '75%'
             }]
         },
         options: {
             responsive: true,
             plugins: {
                 legend: {
-                    position: 'right',
+                    position: 'bottom',
                 }
             },
         }
