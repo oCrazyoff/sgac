@@ -69,7 +69,9 @@ $stmt->close();
         </div>
         <div class="card col-span-2 h-96">
             <h3 class="text-lg font-semibold mb-4 text-texto-preto">Participação Mensal</h3>
-            <canvas id="graficoMensal"></canvas>
+            <div class="w-full h-70">
+                <canvas id="graficoMensal" class="max-h-full"></canvas>
+            </div>
         </div>
         <div class="card col-span-2 h-96">
             <h3 class="text-lg font-semibold mb-4 text-texto-preto">Tipos de Eventos</h3>
