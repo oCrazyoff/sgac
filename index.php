@@ -29,6 +29,7 @@ $routes = [
     // rotas de edição
     'adm/editar_voluntarios' => 'backend/editar/voluntarios.php',
     'adm/editar_eventos' => 'backend/editar/eventos.php',
+    'adm/alterar_presenca' => 'backend/editar/presenca.php',
 
     // rotas de deletar
     'adm/deletar_voluntarios' => 'backend/deletar/voluntarios.php',
