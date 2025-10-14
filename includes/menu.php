@@ -11,23 +11,25 @@
     </div>
     <nav class="mt-8">
         <!-- Abaixo é um exemplo depois tem que inverter a ordem -->
-        <a href="voluntarios" class="menu-itens <?= ($rota == 'adm/voluntarios') ? 'active' : '' ?>">
+        <a href="<?= BASE_URL . "adm/voluntarios" ?>"
+           class="menu-itens <?= ($rota == 'adm/voluntarios') ? 'active' : '' ?>">
             <i class="bi bi-people"></i>
             <span>Voluntários</span>
         </a>
-        <a href="eventos" class="menu-itens <?= ($rota == 'adm/eventos') ? 'active' : '' ?>">
+        <a href="<?= BASE_URL . "adm/eventos" ?>" class="menu-itens <?= ($rota == 'adm/eventos') ? 'active' : '' ?>">
             <i class="bi bi-calendar4"></i>
             <span>Eventos</span>
         </a>
-        <a href="presenca" class="menu-itens <?= ($rota == 'adm/presenca') ? 'active' : '' ?>">
+        <a href="<?= BASE_URL . "adm/presenca" ?>" class="menu-itens <?= ($rota == 'adm/presenca') ? 'active' : '' ?>">
             <i class="bi bi-person-check"></i>
             <span>Presença</span>
         </a>
-        <a href="doacoes" class="menu-itens <?= ($rota == 'adm/doacoes') ? 'active' : '' ?>">
+        <a href="<?= BASE_URL . "adm/doacoes" ?>" class="menu-itens <?= ($rota == 'adm/doacoes') ? 'active' : '' ?>">
             <i class="bi bi-gift"></i>
             <span>Doações</span>
         </a>
-        <a href="relatorios" class="menu-itens <?= ($rota == 'adm/relatorios') ? 'active' : '' ?>">
+        <a href="<?= BASE_URL . "adm/relatorios" ?>"
+           class="menu-itens <?= ($rota == 'adm/relatorios') ? 'active' : '' ?>">
             <i class="bi bi-graph-up"></i>
             <span>Relatórios</span>
         </a>

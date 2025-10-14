@@ -48,7 +48,7 @@ $stmt->close();
                         </div>
                         <div class="flex flex-col justify-start items-start gap-1">
                             <h3 class="text-sm text-texto-opaco font-normal">HABILIDADES</h3>
-                            <div class="flex justify-start items-center gap-2">
+                            <div class="flex justify-start items-center gap-2 flex-wrap">
                                 <?php
                                 $habilidades = explode(",", $row['habilidades']);
                                 for ($i = 0; $i < count($habilidades); $i++):
