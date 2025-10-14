@@ -14,6 +14,7 @@ $routes = [
     'adm/doacoes' => 'adm/doacoes.php',
     'adm/eventos' => 'adm/eventos.php',
     'adm/presenca' => 'adm/presenca.php',
+    'adm/presenca/lista' => 'adm/lista_presenca.php',
     'adm/relatorios' => 'adm/relatorios.php',
     'adm/voluntarios' => 'adm/voluntarios.php',
 
