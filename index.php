@@ -25,6 +25,7 @@ $routes = [
     // rotas de cadastro
     'adm/cadastrar_voluntarios' => 'backend/cadastrar/voluntarios.php',
     'adm/cadastrar_eventos' => 'backend/cadastrar/eventos.php',
+    'adm/cadastrar_recursos' => 'backend/cadastrar/recursos.php',
 
     // rotas de edição
     'adm/editar_voluntarios' => 'backend/editar/voluntarios.php',

@@ -35,7 +35,13 @@ require_once __DIR__ . "/../backend/recursos/funcoes.php";
         </div>
     </div>
     <div class="mt-5 border border-borda rounded-lg shadow-lg bg-white">
-        <p class="border-b border-borda px-5 py-3 font-semibold text-texto-preto text-lg">Recursos Necessários</p>
+        <div class="border-b border-borda px-5 py-5 flex justify-between items-center">
+            <p class=" font-semibold text-texto-preto text-lg">Recursos Necessários</p>
+            <button class="btn-novo" onclick="abrirCadastrarModal('recursos')">
+                <i class="bi bi-plus"></i> Nova Doação
+            </button>
+        </div>
+
         <?php
             // puxando voluntários do evento
             $sql = "SELECT d.id, e.nome, d.meta_valor, d.status, d.prioridade FROM doacoes d INNER JOIN eventos e ON d.id_evento = e.id";
@@ -64,4 +70,6 @@ require_once __DIR__ . "/../backend/recursos/funcoes.php";
         <?php endif; ?>
     </div>
 </main>
+<?php $tipo_modal = "recursos"; ?>
+<?php require_once __DIR__ . "/../includes/modal.php"; ?>
 <?php require_once __DIR__ . "/../includes/fim.php"; ?>
