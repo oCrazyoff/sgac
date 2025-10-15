@@ -59,7 +59,7 @@ $stmt->close();
             if ($resultado->num_rows > 0) :
                 while ($row = $resultado->fetch_assoc()):
         ?>
-        <div class="flex items-center justify-between px-5 py-3">
+        <div class="flex items-center justify-between px-5 py-3 border-b border-borda">
             <div class="flex justify-start items-center gap-4">
                 <span
                     class="bg-gradient-to-r from-azul to-verde rounded-full w-12 h-12 text-stone-100 flex justify-center items-center text-2xl font-bold"><?= htmlspecialchars(substr($row["nome"], 0, 1)) ?></span>

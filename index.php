@@ -11,7 +11,7 @@ $routes = [
     'fazer_login' => 'backend/auth/login.php',
 
     // rotas do usuario adm
-    'adm/doacoes' => 'adm/doacoes.php',
+    'adm/recursos' => 'adm/recursos.php',
     'adm/eventos' => 'adm/eventos.php',
     'adm/presenca' => 'adm/presenca.php',
     'adm/presenca/lista' => 'adm/lista_presenca.php',

@@ -12,7 +12,7 @@
     <nav class="mt-8">
         <!-- Abaixo é um exemplo depois tem que inverter a ordem -->
         <a href="<?= BASE_URL . "adm/voluntarios" ?>"
-           class="menu-itens <?= ($rota == 'adm/voluntarios') ? 'active' : '' ?>">
+            class="menu-itens <?= ($rota == 'adm/voluntarios') ? 'active' : '' ?>">
             <i class="bi bi-people"></i>
             <span>Voluntários</span>
         </a>
@@ -24,12 +24,12 @@
             <i class="bi bi-person-check"></i>
             <span>Presença</span>
         </a>
-        <a href="<?= BASE_URL . "adm/doacoes" ?>" class="menu-itens <?= ($rota == 'adm/doacoes') ? 'active' : '' ?>">
+        <a href="<?= BASE_URL . "adm/recursos" ?>" class="menu-itens <?= ($rota == 'adm/recursos') ? 'active' : '' ?>">
             <i class="bi bi-gift"></i>
-            <span>Doações</span>
+            <span>Recursos</span>
         </a>
         <a href="<?= BASE_URL . "adm/relatorios" ?>"
-           class="menu-itens <?= ($rota == 'adm/relatorios') ? 'active' : '' ?>">
+            class="menu-itens <?= ($rota == 'adm/relatorios') ? 'active' : '' ?>">
             <i class="bi bi-graph-up"></i>
             <span>Relatórios</span>
         </a>
