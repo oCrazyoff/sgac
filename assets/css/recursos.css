@@ -1,0 +1,5 @@
+@layer components {
+    .card-recursos {
+        @apply border border-borda rounded-lg p-5 text-xl shadow-lg flex justify-between items-center bg-white;
+    }
+}

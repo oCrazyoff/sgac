@@ -3,6 +3,7 @@
 @import "./div_erro.css";
 @import "./eventos.css";
 @import "./modal.css";
+@import "./recursos.css";
 
 /* variaveis */
 @theme {
@@ -24,7 +25,7 @@
         @apply flex h-dvh w-full;
 
         & main {
-            @apply p-5 w-full overflow-y-auto;
+            @apply p-5 w-full overflow-y-auto bg-gray-100;
         }
     }
 }
@@ -67,6 +68,6 @@
     }
 
     .card {
-        @apply border border-borda rounded-lg p-6 text-xl shadow-lg flex flex-col gap-3;
+        @apply border border-borda rounded-lg p-6 text-xl shadow-lg flex flex-col gap-3 bg-white;
     }
 }

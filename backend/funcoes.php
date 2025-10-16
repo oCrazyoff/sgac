@@ -55,4 +55,40 @@ function validarCSRF($csrf)
 
     return true;
 }
+
+function formatarReal($valor)
+{
+    return 'R$ ' . number_format($valor, 2, ',', '.');
+}
+
+function formatarData($data)
+{
+    return date('d/m/Y', strtotime($data));
+}
+
+function formatarTelefone($numero) {
+    // Remove tudo que não for número
+    $numero = preg_replace('/\D/', '', $numero);
+
+    // Verifica se tem DDD e número válidos
+    if (strlen($numero) === 11) {
+        // Formato: (XX) 9XXXX-XXXX
+        return sprintf('(%s) %s-%s',
+            substr($numero, 0, 2),    // DDD
+            substr($numero, 2, 5),    // primeiros 5 dígitos
+            substr($numero, 7)        // últimos 4 dígitos
+        );
+    } elseif (strlen($numero) === 10) {
+        // Formato: (XX) XXXX-XXXX
+        return sprintf('(%s) %s-%s',
+            substr($numero, 0, 2),
+            substr($numero, 2, 4),
+            substr($numero, 6)
+        );
+    }
+
+    // Se não tiver 10 ou 11 dígitos, retorna o número original
+    return $numero;
+}
+
 ?>
