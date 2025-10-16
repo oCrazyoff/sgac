@@ -9,6 +9,7 @@
 @theme {
     --color-verde: #00c46a;
     --color-azul: #2a80ff;
+    --color-azul-hover: #1654af;
     --color-texto-preto: oklch(21.6% 0.006 56.043);
     --color-texto-opaco: #656565;
     --color-texto-opaco-hover: #2d2d2d;

@@ -8,22 +8,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $senha = trim($_POST["senha"]);
 
     // Verificar o email
-    if (validarEmail($email) == false) {
+    if (!validarEmail($email)) {
         $_SESSION['resposta'] = "Email inválido!";
         header("Location: " . BASE_URL . "login");
         exit;
     }
 
-    //Verificar token CSRF
+    // Verificar token CSRF
     $csrf = trim(strip_tags($_POST["csrf"]));
-    if (validarCSRF($csrf) == false) {
-        $_SESSION['resposta'] = "Método invalido!";
+    if (!validarCSRF($csrf)) {
+        $_SESSION['resposta'] = "Método inválido!";
         header("Location: " . BASE_URL . "login");
         exit;
     }
 
-    //Validadar senha
-    if (validarSenha($senha) == false) {
+    // Validar senha
+    if (!validarSenha($senha)) {
         $_SESSION['resposta'] = "Senha inválida!";
         header("Location: " . BASE_URL . "login");
         exit;
@@ -31,58 +31,71 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!empty($email) && !empty($senha)) {
         try {
-            // Faz a verificação no banco de dados
+            // Tenta buscar como ADM
             $stmt = $conexao->prepare("SELECT id, nome, email, senha FROM adm WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
-            $stmt->bind_result($id, $nome, $email, $senha_db);
-
-            $usuarioEncontrado = $stmt->fetch();
+            $result = $stmt->get_result();
+            $usuario = $result->fetch_assoc();
             $stmt->close();
 
-            if (!$usuarioEncontrado) {
+            $cargo = null; // 0 = ADM, 1 = Voluntário
+
+            // Se não achou como ADM, tenta como voluntário
+            if (!$usuario) {
+                $stmt = $conexao->prepare("SELECT id, nome, email, telefone, senha FROM voluntarios WHERE email = ?");
+                $stmt->bind_param("s", $email);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $usuario = $result->fetch_assoc();
+                $stmt->close();
+
+                if ($usuario) {
+                    $cargo = 1; // Voluntário
+                }
+            } else {
+                $cargo = 0; // ADM
+            }
+
+            // Se não encontrou em nenhuma tabela
+            if (!$usuario) {
                 $_SESSION['resposta'] = "E-mail ou senha incorretos!";
                 header("Location: " . BASE_URL . "login");
                 exit;
             }
 
-            // verifica se a senha esta correta
-            if (password_verify($senha, $senha_db)) {
+            // Verifica senha
+            if (password_verify($senha, $usuario['senha'])) {
+                $_SESSION["id"] = $usuario['id'];
+                $_SESSION["nome"] = $usuario['nome'];
+                $_SESSION["email"] = $usuario['email'];
+                $_SESSION["cargo"] = $cargo;
+                $_SESSION['resposta'] = "Bem-vindo, " . $usuario['nome'] . "!";
 
-                // atualiza as variaveis sessions
-                $_SESSION["id"] = $id;
-                $_SESSION["nome"] = $nome;
-                $_SESSION["email"] = $email;
-
-                $_SESSION['resposta'] = "Bem Vindo! " . $_SESSION['nome'];
-
-                // redirecionando
-                header("Location: " . BASE_URL . "adm/voluntarios");
+                if ($cargo === 0) {
+                    header("Location: " . BASE_URL . "adm/voluntarios");
+                } else {
+                    $_SESSION['telefone'] = $usuario['telefone'];
+                    header("Location: " . BASE_URL . "eventos");
+                }
                 exit;
             } else {
                 $_SESSION['resposta'] = "E-mail ou senha incorretos!";
                 header("Location: " . BASE_URL . "login");
                 exit;
             }
+
         } catch (Exception $erro) {
-            // Caso houver erro ele retorna
-            switch ($erro->getCode()) {
-                // erro de quantidade de paramêtros erro
-                case 1136:
-                    $_SESSION['resposta'] = "Quantidade de dados inseridos inválida!";
-                    header("Location: " . BASE_URL . "login");
-                    exit;
-                default:
-                    $_SESSION['resposta'] = "Erro inesperado. Tente novamente.";
-                    header("Location: " . BASE_URL . "login");
-                    exit;
-            }
+            $_SESSION['resposta'] = "Erro inesperado. Tente novamente.";
+            header("Location: " . BASE_URL . "login");
+            exit;
         }
     } else {
         $_SESSION['resposta'] = "Preencha todas as informações!";
     }
 } else {
-    $_SESSION['resposta'] = "Variável POST ínvalida!";
+    $_SESSION['resposta'] = "Variável POST inválida!";
 }
+
 header("Location: " . BASE_URL . "login");
 exit;

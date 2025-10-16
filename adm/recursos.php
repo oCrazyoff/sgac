@@ -87,10 +87,6 @@ require_once __DIR__ . "/../backend/recursos/funcoes.php";
                         </div>
                         <div class="flex flex-col w-15 justify-center items-center">
                             <!--editar-->
-                            <button class="w-10 h-10 rounded-lg hover:bg-blue-100 text-blue-500 cursor-pointer">
-                                <i class="bi bi-envelope-paper-heart"></i>
-                            </button>
-                            <!--editar-->
                             <button class="w-10 h-10 rounded-lg hover:bg-blue-100 text-blue-500 cursor-pointer"
                                     onclick="abrirEditarModal('recursos', <?= htmlspecialchars($row['id']) ?>)">
                                 <i class="bi bi-pencil"></i>

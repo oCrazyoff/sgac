@@ -4,7 +4,7 @@ $url = trim($url, '/');
 
 // rotas
 $routes = [
-    '' => 'pages/eventos.php',
+    '' => 'pages/landing.php',
 
     // autenticação
     'login' => 'pages/login_form.php',
@@ -18,23 +18,29 @@ $routes = [
     'adm/relatorios' => 'adm/relatorios.php',
     'adm/voluntarios' => 'adm/voluntarios.php',
 
+    // rotas do usuario voluntario
+    'eventos' => 'pages/eventos.php',
+    'recursos' => 'pages/recursos.php',
+    'doar_valor' => 'backend/recursos/doar.php',
+    'voluntariar_se' => 'backend/eventos/voluntariar.php',
+
     // rotas de busca
     'buscar_voluntarios' => 'backend/buscar/voluntarios.php',
-    'buscar_eventos' => 'backend/buscar/eventos.php',
+    'buscar_eventos' => 'backend/buscar/landing.php',
 
     // rotas de cadastro
     'adm/cadastrar_voluntarios' => 'backend/cadastrar/voluntarios.php',
-    'adm/cadastrar_eventos' => 'backend/cadastrar/eventos.php',
+    'adm/cadastrar_eventos' => 'backend/cadastrar/landing.php',
     'adm/cadastrar_recursos' => 'backend/cadastrar/recursos.php',
 
     // rotas de edição
     'adm/editar_voluntarios' => 'backend/editar/voluntarios.php',
-    'adm/editar_eventos' => 'backend/editar/eventos.php',
+    'adm/editar_eventos' => 'backend/editar/landing.php',
     'adm/alterar_presenca' => 'backend/editar/presenca.php',
 
     // rotas de deletar
     'adm/deletar_voluntarios' => 'backend/deletar/voluntarios.php',
-    'adm/deletar_eventos' => 'backend/deletar/eventos.php',
+    'adm/deletar_eventos' => 'backend/deletar/landing.php',
     'adm/deletar_recursos' => 'backend/deletar/recursos.php',
 ];
 
