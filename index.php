@@ -35,6 +35,7 @@ $routes = [
     // rotas de deletar
     'adm/deletar_voluntarios' => 'backend/deletar/voluntarios.php',
     'adm/deletar_eventos' => 'backend/deletar/eventos.php',
+    'adm/deletar_recursos' => 'backend/deletar/recursos.php',
 ];
 
 if (array_key_exists($url, $routes)) {

@@ -65,7 +65,7 @@
             <label for="id_evento">Evento</label>
             <select name="id_evento" id="id_evento" class="input-modal">
                 <?php 
-                    $sql = "SELECT id, nome FROM eventos";
+                    $sql = "SELECT id, nome FROM eventos WHERE status = 0";
                     $stmt = $conexao->prepare($sql);
                     $stmt->execute();
                     $resultado = $stmt->get_result();

@@ -67,3 +67,44 @@ function metas_atingidas() {
         return ("Erro em total_arrecadado(): " . $erro->getMessage());
     }
 }
+
+function mostrar_prioridade($prioridade){
+    switch ($prioridade) {
+        case '0':
+            return("Baixa");
+            break;
+        case '2':
+            return("Média");
+            break;
+        case '3':
+            return("Alta");
+            break;                            
+        default:
+            return("N/a");
+            break;
+    }
+}
+
+function metas($id) {
+    global $conexao;
+
+    try {
+        $stmt = $conexao->prepare("SELECT SUM(valor) AS valor FROM `itens_doacao` WHERE id_doacao = ?");
+        $stmt->bind_param("i", $id);
+        if (!$stmt) {
+        throw new Exception("Erro ao preparar a consulta: " . $conexao->error);
+        }
+
+        if (!$stmt->execute()) {
+            throw new Exception("Erro ao executar a consulta: " . $stmt->error);
+        }
+
+        $stmt->bind_result($valor);
+        $stmt->fetch();
+        $stmt->close();
+        return (int) ($valor ?? 0);
+
+    } catch (Exception $erro) {
+        return ("Erro em total_arrecadado(): " . $erro->getMessage());
+    }
+}
