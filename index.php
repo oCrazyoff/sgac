@@ -8,7 +8,9 @@ $routes = [
 
     // autenticação
     'login' => 'pages/login_form.php',
+    'cadastro' => 'pages/cadastro_form.php',
     'fazer_login' => 'backend/auth/login.php',
+    'perfil' => 'pages/perfil.php',
 
     // rotas do usuario adm
     'adm/recursos' => 'adm/recursos.php',

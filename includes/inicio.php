@@ -26,7 +26,7 @@ if (isset($n_valida) && $n_valida == true) {
 <body <?= (isset($rota) && $rota == '') ? 'class="flex-col"' : '' ?>>
 <?php
 // removendo o menu das paginas de eventos e o formulario de login
-if (isset($_SESSION['id']) && $rota !== '' && $rota !== 'login') {
+if (isset($_SESSION['id']) && $rota !== '' && $rota !== 'login' && $rota !== 'cadastro') {
     include("menu.php");
 }
 ?>
