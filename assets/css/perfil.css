@@ -1,5 +1,25 @@
 @layer components {
     .card-perfil {
-        @apply flex flex-col items-center justify-between overflow-hidden border border-borda rounded-lg shadow-lg bg-white;
+        @apply flex flex-col items-start justify-baseline w-full overflow-hidden border border-borda rounded-lg shadow-lg bg-white p-5 gap-2;
+
+        & h3 {
+            @apply text-lg text-texto-preto font-bold;
+        }
+
+        & .foto {
+            @apply bg-gradient-to-r from-azul to-verde rounded-full w-25 h-25 text-stone-100 flex justify-center items-center text-5xl font-bold;
+        }
+
+        & .nome {
+            @apply text-xl font-bold text-texto-preto;
+        }
+
+        & ul {
+            @apply flex justify-baseline items-start flex-col gap-3 px-4;
+
+            & li {
+                @apply text-base text-texto-opaco flex gap-3
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $id_voluntario = $_SESSION['id'];
-    $status_padrao = 1;
+    $status_padrao = 0;
 
     try {
         $sql_check = "SELECT id FROM presencas WHERE id_voluntario = ? AND id_evento = ?";

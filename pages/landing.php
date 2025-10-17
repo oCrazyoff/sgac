@@ -143,7 +143,7 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
                 <?php while ($row = $resultado->fetch_assoc()) : ?>
                 <!--card eventos-->
                 <div
-                    class="card-eventos hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group/evento">
+                    class="card-eventos hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group/evento">
                     <div class="img-container overflow-hidden">
                         <img class="object-cover group-hover/evento:scale-110 transition-transform duration-500"
                             src="<?= htmlspecialchars($row['link_img'] ?: $link_placeholder) ?>"

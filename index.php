@@ -11,7 +11,7 @@ $routes = [
     'cadastro' => 'pages/cadastro_form.php',
     'fazer_cadastro' => 'backend/auth/cadastro.php',
     'fazer_login' => 'backend/auth/login.php',
-    'perfil' => 'pages/perfil.php',
+    'sair' => 'backend/auth/sair.php',
 
     // rotas do usuario adm
     'adm/recursos' => 'adm/recursos.php',
@@ -20,6 +20,7 @@ $routes = [
     'adm/presenca/lista' => 'adm/lista_presenca.php',
     'adm/relatorios' => 'adm/relatorios.php',
     'adm/voluntarios' => 'adm/voluntarios.php',
+    'adm/perfil' => 'adm/perfil.php',
 
     // rotas do usuario voluntario
     'eventos' => 'pages/eventos.php',
@@ -31,6 +32,7 @@ $routes = [
     'buscar_voluntarios' => 'backend/buscar/voluntarios.php',
     'buscar_eventos' => 'backend/buscar/landing.php',
     'buscar_recursos' => 'backend/buscar/recursos.php',
+    'buscar_perfil' => 'backend/buscar/perfil.php',
 
     // rotas de cadastro
     'adm/cadastrar_voluntarios' => 'backend/cadastrar/voluntarios.php',
@@ -42,6 +44,7 @@ $routes = [
     'adm/editar_eventos' => 'backend/editar/landing.php',
     'adm/alterar_presenca' => 'backend/editar/presenca.php',
     'adm/editar_recursos' => 'backend/editar/recursos.php',
+    'adm/editar_perfil' => 'backend/editar/perfil.php',
 
     // rotas de deletar
     'adm/deletar_voluntarios' => 'backend/deletar/voluntarios.php',

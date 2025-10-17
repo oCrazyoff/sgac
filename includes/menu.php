@@ -46,7 +46,7 @@
         </a>
         <?php endif; ?>
     </nav>
-    <a href="<?= BASE_URL . "perfil?id=" . trim($_SESSION["id"]) ?>">
+    <a href="<?= BASE_URL . "adm/perfil"?>">
         <div class="absolute bottom-6 left-6 right-6 space-y-4">
             <div class="flex items-center justify-start space-x-3 bg-gray-50 rounded-lg">
                 <div class="icon-degrade">

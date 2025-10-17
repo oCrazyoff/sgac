@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if($senha != ""){
     if (validarSenha($senha) == false) {
         $_SESSION['resposta'] = "Senha inválida!";
-        header("Location: " . BASE_URL . "adm/voluntarios");
+        header("Location: " . BASE_URL . "adm/perfil");
         exit;
     }
     }
@@ -26,21 +26,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nome = validarNome($nome);
     if ($nome === false) {
         $_SESSION['resposta'] = "Nome inválido!";
-        header("Location: " . BASE_URL . "adm/voluntarios");
+        header("Location: " . BASE_URL . "adm/perfil");
         exit;
     }
 
     // Validar email
     if (validarEmail($email) == false) {
         $_SESSION['resposta'] = "Email inválido!";
-        header("Location: " . BASE_URL . "adm/voluntarios");
+        header("Location: " . BASE_URL . "adm/perfil");
         exit;
     }
 
     // Validar telefone
     if (validarTelefone($telefone) == false) {
         $_SESSION['resposta'] = "Telefone inválido!";
-        header("Location: " . BASE_URL . "adm/voluntarios");
+        header("Location: " . BASE_URL . "adm/perfil");
         exit;
     }
 
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $csrf = trim(strip_tags($_POST["csrf"]));
     if (validarCSRF($csrf) == false) {
         $_SESSION['resposta'] = "Token Inválido";
-        header("Location: " . BASE_URL . "adm/voluntarios");
+        header("Location: " . BASE_URL . "adm/perfil");
         exit;
     }
 
@@ -68,11 +68,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($stmt->affected_rows > 0) {
             $_SESSION['resposta'] = "Voluntário atualizado com sucesso!";
-            header("Location: " . BASE_URL . "adm/voluntarios");
+            header("Location: " . BASE_URL . "adm/perfil");
             exit;
         } else {
             $_SESSION['resposta'] = "Nada a ser alterado.";
-            header("Location: " . BASE_URL . "adm/voluntarios");
+            header("Location: " . BASE_URL . "adm/perfil");
             exit;
         }
 
@@ -82,14 +82,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         switch ($erro->getCode()) {
             default:
                 $_SESSION['resposta'] = "Erro inesperado. Tente novamente.";
-                header("Location: " . BASE_URL . "adm/voluntarios");
+                header("Location: " . BASE_URL . "adm/perfil");
                 exit;
         }
     }
 
 } else {
     $_SESSION['resposta'] = "Método de solicitação inválido!";
-    header("Location: " . BASE_URL . "adm/voluntarios");
+    header("Location: " . BASE_URL . "adm/perfil");
     exit;
 }
 ?>
