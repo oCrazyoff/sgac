@@ -15,7 +15,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: 45.132.157.8
-          username: u262084135.yellowgreen-meerkat-908084.hostingersite.com
+          username: u262084135.sgacFTP
           password: ${{ secrets.senha_hostinger }}
           local-dir: ./
           server-dir: ./
