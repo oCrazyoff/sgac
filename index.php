@@ -30,6 +30,7 @@ $routes = [
     // rotas de busca
     'buscar_voluntarios' => 'backend/buscar/voluntarios.php',
     'buscar_eventos' => 'backend/buscar/landing.php',
+    'buscar_recursos' => 'backend/buscar/recursos.php',
 
     // rotas de cadastro
     'adm/cadastrar_voluntarios' => 'backend/cadastrar/voluntarios.php',
@@ -40,6 +41,7 @@ $routes = [
     'adm/editar_voluntarios' => 'backend/editar/voluntarios.php',
     'adm/editar_eventos' => 'backend/editar/landing.php',
     'adm/alterar_presenca' => 'backend/editar/presenca.php',
+    'adm/editar_recursos' => 'backend/editar/recursos.php',
 
     // rotas de deletar
     'adm/deletar_voluntarios' => 'backend/deletar/voluntarios.php',

@@ -107,15 +107,29 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
                             </p>
                         </div>
                         <div class="w-full p-5 pt-0">
-                            <form action="voluntariar_se" method="POST">
-                                <!--csrf-->
-                                <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
-                                <input type="hidden" name="id_evento" id="id_evento" value="<?= $row['id'] ?>">
+                            <?php
+                            // verificando se o usuario é voluntario ou não
+                            $sql_presenca = "SELECT 1 FROM presencas WHERE id_evento = ? AND id_voluntario = ?";
+                            $stmt_presenca = $conexao->prepare($sql_presenca);
+                            $stmt_presenca->bind_param("ii", $row['id'], $_SESSION['id']);
+                            $stmt_presenca->execute();
+                            $resultado_presenca = $stmt_presenca->get_result();
+                            $stmt_presenca->close();
+                            if ($resultado_presenca->num_rows === 0) : ?>
+                                <form action="voluntariar_se" method="POST">
+                                    <!--csrf-->
+                                    <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
+                                    <input type="hidden" name="id_evento" id="id_evento" value="<?= $row['id'] ?>">
 
-                                <button class="w-full rounded-lg bg-azul text-white p-3 cursor-pointer hover:bg-azul-hover">
-                                    Me Voluntariar
-                                </button>
-                            </form>
+                                    <button class="w-full rounded-lg bg-azul text-white p-3 cursor-pointer hover:bg-azul-hover">
+                                        Me Voluntariar
+                                    </button>
+                                </form>
+                            <?php else: ?>
+                                <div class="w-full rounded-lg bg-yellow-600 text-white p-3 text-center">
+                                    Voluntário 👍
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endwhile; ?>

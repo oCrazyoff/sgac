@@ -33,21 +33,27 @@ require_once __DIR__ . "/../backend/recursos/funcoes.php";
             Recursos e Doações
             <span id="data_atual"></span>
         </h2>
-        <div class="mt-5 border border-borda rounded-lg shadow-lg bg-white">
+        <div class="mt-5 border border-borda rounded-lg shadow-lg bg-white overflow-hidden">
             <div class="border-b border-borda px-5 py-5 flex justify-between items-center">
                 <p class="font-semibold text-texto-preto text-lg">Recursos Necessários</p>
             </div>
 
             <?php
-            // puxando voluntários do evento
-            $sql = "SELECT d.id, e.nome, d.meta_valor, d.status, d.prioridade FROM doacoes d INNER JOIN eventos e ON d.id_evento = e.id";
+            // puxando recursos em andamento
+            $sql = "SELECT d.id, e.nome, d.meta_valor, d.status, d.prioridade 
+                    FROM doacoes d
+                    INNER JOIN eventos e ON d.id_evento = e.id
+                    WHERE d.status = 0";
             $stmt = $conexao->prepare($sql);
             $stmt->execute();
             $resultado = $stmt->get_result();
             if ($resultado->num_rows > 0) :
                 while ($row = $resultado->fetch_assoc()):
                     ?>
-                    <div class="flex items-center justify-between px-5 py-3 border-b border-borda">
+                    <div class="card-doacoes <?=
+                    ($row['prioridade'] == 0) ? 'status-baixo' :
+                        (($row['prioridade'] == 1) ? 'status-medio' : 'status-alto')
+                    ?>">
                         <div class="flex flex-col justify-start items-left gap-2 w-full">
                             <h3 class="text-lg font-bold text-texto-preto flex justify-left items-center gap-3">
                                 <?= htmlspecialchars($row["nome"]) ?>

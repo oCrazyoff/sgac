@@ -88,7 +88,7 @@
                 <option value="2">Alta</option>
             </select>
             <label for="meta">Meta de Doação</label>
-            <input type="number" name="meta" id="meta" class="input-modal"
+            <input type="number" name="meta" id="meta" class="input-modal" step="0.01"
                 placeholder="Digite o quanto é necessário arrecadar" required>
 
             <?php endif; ?>
