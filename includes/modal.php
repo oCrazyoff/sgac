@@ -12,90 +12,86 @@
                 // modal de voluntários
                 if ($tipo_modal == 'voluntarios'): ?>
 
-                    <!--conteudo do formulario-->
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" name="nome" id="nome" class="input-modal" placeholder="Digite o nome completo"
-                           required>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" class="input-modal" placeholder="Digite o email">
-                    <label for="telefone">Telefone</label>
-                    <input type="number" name="telefone" id="telefone" class="input-modal"
-                           placeholder="(11) 99999-9999">
-                    <label for="habilidades">Habilidades</label>
-                    <input type="text" name="habilidades" id="habilidades" class="input-modal"
-                           placeholder="Cozinhar, Comunicação etc...">
+            <!--conteudo do formulario-->
+            <label for="nome">Nome Completo</label>
+            <input type="text" name="nome" id="nome" class="input-modal" placeholder="Digite o nome completo" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="input-modal" placeholder="Digite o email">
+            <label for="telefone">Telefone</label>
+            <input type="number" name="telefone" id="telefone" class="input-modal" placeholder="(11) 99999-9999">
+            <label for="habilidades">Habilidades</label>
+            <input type="text" name="habilidades" id="habilidades" class="input-modal"
+                placeholder="Cozinhar, Comunicação etc...">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" class="input-modal" placeholder="Digite a senha">
 
-                <?php elseif
+            <?php elseif
 
                     // modal de eventos
                 ($tipo_modal == 'eventos'): ?>
 
-                    <!--conteudo formulário-->
-                    <label for="link_img">Link Imagem</label>
-                    <input type="text" name="link_img" id="link_img" class="input-modal" placeholder="Link da Imagem"
-                           required>
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" class="input-modal" placeholder="Nome do evento" required>
-                    <label for="descricao">Descrição</label>
-                    <textarea name="descricao" id="descricao" class="input-modal"
-                              placeholder="Descrição do evento"></textarea>
-                    <label for="tipo">Tipo do evento</label>
-                    <input type="text" name="tipo" id="tipo" class="input-modal" placeholder="Tipo do evento" required>
-                    <label for="status">Status do evento</label>
-                    <select name="status" id="status" class="input-modal">
-                        <option value="0">Publicado</option>
-                        <option value="1">Concluido</option>
-                        <option value="2">Cancelado</option>
-                    </select>
-                    <label for="data_hora">Data e Hora do evento</label>
-                    <input type="datetime-local" name="data_hora" id="data_hora" class="input-modal"
-                           value="<?= date('Y-m-d\TH:i') ?>" required>
-                    <label for="endereco">Endereço</label>
-                    <input type="text" name="endereco" id="endereco" class="input-modal"
-                           placeholder="Ex: Rua de Caxias..."
-                           required>
-                    <label for="meta_voluntarios">Meta de voluntários</label>
-                    <input type="number" name="meta_voluntarios" id="meta_voluntarios" class="input-modal"
-                           placeholder="Ex: 20"
-                           required>
-                    <label for="objetivos">Objetivos</label>
-                    <textarea name="objetivos" id="objetivos" class="input-modal"
-                              placeholder="Ex: Plantar 20 árvores em duas praças"></textarea>
+            <!--conteudo formulário-->
+            <label for="link_img">Link Imagem</label>
+            <input type="text" name="link_img" id="link_img" class="input-modal" placeholder="Link da Imagem" required>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" class="input-modal" placeholder="Nome do evento" required>
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" id="descricao" class="input-modal" placeholder="Descrição do evento"></textarea>
+            <label for="tipo">Tipo do evento</label>
+            <input type="text" name="tipo" id="tipo" class="input-modal" placeholder="Tipo do evento" required>
+            <label for="status">Status do evento</label>
+            <select name="status" id="status" class="input-modal">
+                <option value="0">Publicado</option>
+                <option value="1">Concluido</option>
+                <option value="2">Cancelado</option>
+            </select>
+            <label for="data_hora">Data e Hora do evento</label>
+            <input type="datetime-local" name="data_hora" id="data_hora" class="input-modal"
+                value="<?= date('Y-m-d\TH:i') ?>" required>
+            <label for="endereco">Endereço</label>
+            <input type="text" name="endereco" id="endereco" class="input-modal" placeholder="Ex: Rua de Caxias..."
+                required>
+            <label for="meta_voluntarios">Meta de voluntários</label>
+            <input type="number" name="meta_voluntarios" id="meta_voluntarios" class="input-modal" placeholder="Ex: 20"
+                required>
+            <label for="objetivos">Objetivos</label>
+            <textarea name="objetivos" id="objetivos" class="input-modal"
+                placeholder="Ex: Plantar 20 árvores em duas praças"></textarea>
 
 
-                <?php elseif
+            <?php elseif
 
                     // modal de eventos
                 ($tipo_modal == 'recursos'): ?>
-                    <!--conteudo formulário-->
-                    <label for="id_evento">Evento</label>
-                    <select name="id_evento" id="id_evento" class="input-modal">
-                        <?php
+            <!--conteudo formulário-->
+            <label for="id_evento">Evento</label>
+            <select name="id_evento" id="id_evento" class="input-modal">
+                <?php
                         $sql = "SELECT id, nome FROM eventos WHERE status = 0";
                         $stmt = $conexao->prepare($sql);
                         $stmt->execute();
                         $resultado = $stmt->get_result();
                         while ($row = $resultado->fetch_assoc()):
                             ?>
-                            <option value="<?= htmlspecialchars($row["id"]) ?>"><?= htmlspecialchars($row["nome"]) ?></option>
-                        <?php endwhile; ?>
-                    </select>
-                    <label for="status">Status da Doação</label>
-                    <select name="status" id="status" class="input-modal">
-                        <option value="0">Em andamento</option>
-                        <option value="1">Concluido</option>
-                    </select>
-                    <label for="prioridade">Prioridade da Doação</label>
-                    <select name="prioridade" id="prioridade" class="input-modal">
-                        <option value="0">Baixa</option>
-                        <option value="1">Média</option>
-                        <option value="2">Alta</option>
-                    </select>
-                    <label for="meta">Meta de Doação</label>
-                    <input type="number" name="meta" id="meta" class="input-modal"
-                           placeholder="Digite o quanto é necessário arrecadar" required>
+                <option value="<?= htmlspecialchars($row["id"]) ?>"><?= htmlspecialchars($row["nome"]) ?></option>
+                <?php endwhile; ?>
+            </select>
+            <label for="status">Status da Doação</label>
+            <select name="status" id="status" class="input-modal">
+                <option value="0">Em andamento</option>
+                <option value="1">Concluido</option>
+            </select>
+            <label for="prioridade">Prioridade da Doação</label>
+            <select name="prioridade" id="prioridade" class="input-modal">
+                <option value="0">Baixa</option>
+                <option value="1">Média</option>
+                <option value="2">Alta</option>
+            </select>
+            <label for="meta">Meta de Doação</label>
+            <input type="number" name="meta" id="meta" class="input-modal"
+                placeholder="Digite o quanto é necessário arrecadar" required>
 
-                <?php endif; ?>
+            <?php endif; ?>
             <?php endif; ?>
             <div class="grid grid-cols-2 gap-2 mt-5">
                 <button type="submit" class="btn-submit">
@@ -108,126 +104,126 @@
 </div>
 
 <script>
-    // funções do modal
+// funções do modal
 
-    // Capitaliza a primeira letra
-    function capitalizarPrimeiraLetra(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
+// Capitaliza a primeira letra
+function capitalizarPrimeiraLetra(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
-    // Helpers para animação
-    function aplicarAnimacaoAbertura(overlayEl, contentEl) {
-        // remove classes de saída e força reflow para reiniciar animação
+// Helpers para animação
+function aplicarAnimacaoAbertura(overlayEl, contentEl) {
+    // remove classes de saída e força reflow para reiniciar animação
+    overlayEl.classList.remove('modal-anim-out');
+    contentEl.classList.remove('modal-content-anim-out');
+    // reflow
+    void overlayEl.offsetWidth;
+    overlayEl.classList.add('modal-anim-in');
+    contentEl.classList.add('modal-content-anim-in');
+}
+
+function aplicarAnimacaoFechamento(overlayEl, contentEl, onFim) {
+    // remove classes de entrada
+    overlayEl.classList.remove('modal-anim-in');
+    contentEl.classList.remove('modal-content-anim-in');
+    // reflow
+    void overlayEl.offsetWidth;
+    // adiciona classes de saída
+    overlayEl.classList.add('modal-anim-out');
+    contentEl.classList.add('modal-content-anim-out');
+
+    // após animação do conteúdo concluir, esconde e limpa
+    const handleEnd = () => {
+        contentEl.removeEventListener('animationend', handleEnd);
+        overlayEl.classList.add('hidden');
+        // limpeza
         overlayEl.classList.remove('modal-anim-out');
         contentEl.classList.remove('modal-content-anim-out');
-        // reflow
-        void overlayEl.offsetWidth;
-        overlayEl.classList.add('modal-anim-in');
-        contentEl.classList.add('modal-content-anim-in');
-    }
+        if (typeof onFim === 'function') onFim();
+    };
+    contentEl.addEventListener('animationend', handleEnd, {
+        once: true
+    });
+}
 
-    function aplicarAnimacaoFechamento(overlayEl, contentEl, onFim) {
-        // remove classes de entrada
-        overlayEl.classList.remove('modal-anim-in');
-        contentEl.classList.remove('modal-content-anim-in');
-        // reflow
-        void overlayEl.offsetWidth;
-        // adiciona classes de saída
-        overlayEl.classList.add('modal-anim-out');
-        contentEl.classList.add('modal-content-anim-out');
+function abrirCadastrarModal(tabela) {
+    const modal = document.getElementById('modal');
+    const form = document.getElementById('modal-form');
+    const content = document.getElementById('form-container');
 
-        // após animação do conteúdo concluir, esconde e limpa
-        const handleEnd = () => {
-            contentEl.removeEventListener('animationend', handleEnd);
-            overlayEl.classList.add('hidden');
-            // limpeza
-            overlayEl.classList.remove('modal-anim-out');
-            contentEl.classList.remove('modal-content-anim-out');
-            if (typeof onFim === 'function') onFim();
-        };
-        contentEl.addEventListener('animationend', handleEnd, {
-            once: true
-        });
-    }
+    modal.classList.remove('hidden');
+    document.getElementById('modal-title').textContent = `Cadastrar ${capitalizarPrimeiraLetra(tabela)}`;
 
-    function abrirCadastrarModal(tabela) {
-        const modal = document.getElementById('modal');
-        const form = document.getElementById('modal-form');
-        const content = document.getElementById('form-container');
+    // limpa campos do form
+    form.reset();
 
-        modal.classList.remove('hidden');
-        document.getElementById('modal-title').textContent = `Cadastrar ${capitalizarPrimeiraLetra(tabela)}`;
+    // altera action do form para o PHP de cadastro
+    form.action = `cadastrar_${tabela}`;
 
-        // limpa campos do form
-        form.reset();
+    // aplica animação de abertura
+    aplicarAnimacaoAbertura(modal, content);
+}
 
-        // altera action do form para o PHP de cadastro
-        form.action = `cadastrar_${tabela}`;
+async function abrirEditarModal(tabela, id) {
+    const modal = document.getElementById('modal');
+    const form = document.getElementById('modal-form');
+    const modalTitle = document.getElementById('modal-title');
+    const content = document.getElementById('form-container');
 
-        // aplica animação de abertura
-        aplicarAnimacaoAbertura(modal, content);
-    }
+    // Mostrar modal imediatamente
+    modal.classList.remove('hidden');
 
-    async function abrirEditarModal(tabela, id) {
-        const modal = document.getElementById('modal');
-        const form = document.getElementById('modal-form');
-        const modalTitle = document.getElementById('modal-title');
-        const content = document.getElementById('form-container');
+    // Coloca título temporário
+    modalTitle.textContent = "Carregando...";
 
-        // Mostrar modal imediatamente
-        modal.classList.remove('hidden');
+    // Altera action do form
+    form.action = `editar_${tabela}?id=${id}`;
 
-        // Coloca título temporário
-        modalTitle.textContent = "Carregando...";
+    // aplica animação de abertura
+    aplicarAnimacaoAbertura(modal, content);
 
-        // Altera action do form
-        form.action = `editar_${tabela}?id=${id}`;
+    try {
+        // Busca os dados
+        const resp = await fetch(`../buscar_${tabela}?id=${id}`);
+        const dados = await resp.json();
 
-        // aplica animação de abertura
-        aplicarAnimacaoAbertura(modal, content);
-
-        try {
-            // Busca os dados
-            const resp = await fetch(`../buscar_${tabela}?id=${id}`);
-            const dados = await resp.json();
-
-            // Preenche os campos do form
-            for (const campo in dados) {
-                if (form[campo]) form[campo].value = dados[campo];
-            }
-
-            // Atualiza título com o correto
-            modalTitle.textContent = `Editar ${capitalizarPrimeiraLetra(tabela)}`;
-        } catch (erro) {
-            modalTitle.textContent = `Erro ao carregar ${capitalizarPrimeiraLetra(tabela)}`;
-            console.error("Erro ao buscar dados:", erro);
+        // Preenche os campos do form
+        for (const campo in dados) {
+            if (form[campo]) form[campo].value = dados[campo];
         }
+
+        // Atualiza título com o correto
+        modalTitle.textContent = `Editar ${capitalizarPrimeiraLetra(tabela)}`;
+    } catch (erro) {
+        modalTitle.textContent = `Erro ao carregar ${capitalizarPrimeiraLetra(tabela)}`;
+        console.error("Erro ao buscar dados:", erro);
     }
+}
 
-    function fecharModal() {
-        const modal = document.getElementById('modal');
-        const content = document.getElementById('form-container');
-        aplicarAnimacaoFechamento(modal, content);
-    }
+function fecharModal() {
+    const modal = document.getElementById('modal');
+    const content = document.getElementById('form-container');
+    aplicarAnimacaoFechamento(modal, content);
+}
 
-    // Fechar com ESC e clique no backdrop
-    (function initModalListeners() {
-        const modal = document.getElementById('modal');
-        const content = document.getElementById('form-container');
-        if (!modal || !content) return;
+// Fechar com ESC e clique no backdrop
+(function initModalListeners() {
+    const modal = document.getElementById('modal');
+    const content = document.getElementById('form-container');
+    if (!modal || !content) return;
 
-        // Clique no backdrop
-        modal.addEventListener('click', (ev) => {
-            if (ev.target === modal) {
-                fecharModal();
-            }
-        });
+    // Clique no backdrop
+    modal.addEventListener('click', (ev) => {
+        if (ev.target === modal) {
+            fecharModal();
+        }
+    });
 
-        // Tecla ESC
-        document.addEventListener('keydown', (ev) => {
-            if (ev.key === 'Escape' && !modal.classList.contains('hidden')) {
-                fecharModal();
-            }
-        });
-    })();
+    // Tecla ESC
+    document.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Escape' && !modal.classList.contains('hidden')) {
+            fecharModal();
+        }
+    });
+})();
 </script>

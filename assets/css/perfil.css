@@ -1,0 +1,5 @@
+@layer components {
+    .card-perfil {
+        @apply flex flex-col items-center justify-between overflow-hidden border border-borda rounded-lg shadow-lg bg-white;
+    }
+}

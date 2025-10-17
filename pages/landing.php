@@ -25,8 +25,7 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
             </div>
         </div>
         <nav>
-            <a href="login"
-                class="font-semibold flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+            <a href="login" class="font-semibold flex items-center text-gray-600 hover:text-blue-600 transition-colors">
                 <i class="bi bi-people mr-2 text-blue-600 text-xl"></i>
                 Login
             </a>
@@ -48,15 +47,17 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
                 ação pode gerar um grande impacto social.
             </p>
             <div class="flex gap-6 mt-6">
-                <button class="cursor-pointer flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                <a href="cadastro"
+                    class="cursor-pointer flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
                     <i class="bi bi-calendar4 text-lg"></i>
                     Ver Eventos
                     <i class="bi bi-arrow-right text-lg"></i>
-                </button>
-                <button class="cursor-pointer flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 border-2 border-blue-600 transform hover:scale-105 transition-all duration-200">
+                </a>
+                <a href="cadastro"
+                    class="cursor-pointer flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 border-2 border-blue-600 transform hover:scale-105 transition-all duration-200">
                     <i class="bi bi-heart text-lg"></i>
                     Seja Voluntário
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -68,41 +69,49 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
                 Nosso Impacto
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                    <i class="bi bi-people h-12 w-12 bg-blue-500 p-3 rounded-xl text-white items-center justify-center flex text-2xl"></i>
+                <div
+                    class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <i
+                        class="bi bi-people h-12 w-12 bg-blue-500 p-3 rounded-xl text-white items-center justify-center flex text-2xl"></i>
                     <p class="text-3xl font-bold text-gray-900 mt-4">
-                        5,000+
+                        1,247
                     </p>
                     <p class="text-gray-600 text-sm mt-1">
                         Voluntários Ativos
                     </p>
                 </div>
-                <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                    <i class="bi bi-calendar4 h-12 w-12 bg-green-500 p-3 rounded-xl text-white items-center justify-center flex text-2xl"></i>
+                <div
+                    class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <i
+                        class="bi bi-calendar4 h-12 w-12 bg-green-500 p-3 rounded-xl text-white items-center justify-center flex text-2xl"></i>
                     <p class="text-3xl font-bold text-gray-900 mt-4">
-                        5,000+
+                        156
                     </p>
                     <p class="text-gray-600 text-sm mt-1">
-                        Voluntários Ativos
+                        Eventos Realizados
                     </p>
                 </div>
-                <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                    <i class="bg-red-500 h-12 w-12 rounded-xl text-white items-center justify-center flex bi bi-heart text-2xl"></i>
+                <div
+                    class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <i
+                        class="bg-red-500 h-12 w-12 rounded-xl text-white items-center justify-center flex bi bi-heart text-2xl"></i>
 
                     <p class="text-3xl font-bold text-gray-900 mt-4">
-                        5,000+
+                        8,432
                     </p>
                     <p class="text-gray-600 text-sm mt-1">
-                        Voluntários Ativos
+                        Horas de voluntariado
                     </p>
                 </div>
-                <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-                    <i class="bi bi-bullseye h-12 w-12 bg-purple-500 p-3 rounded-xl text-white items-center justify-center flex text-2xl"></i>
+                <div
+                    class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <i
+                        class="bi bi-bullseye h-12 w-12 bg-purple-500 p-3 rounded-xl text-white items-center justify-center flex text-2xl"></i>
                     <p class="text-3xl font-bold text-gray-900 mt-4">
-                        5,000+
+                        15,678
                     </p>
                     <p class="text-gray-600 text-sm mt-1">
-                        Voluntários Ativos
+                        Pessoas Impactadas
                     </p>
                 </div>
             </div>
@@ -116,7 +125,7 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
                 <h3 class="text-3xl font-bold text-gray-900">
                     Próximos Eventos
                 </h3>
-                <a href=""
+                <a href="cadastro"
                     class="text-blue-600 hover:text-blue-700 font-semibold flex items-center transition-colors duration-200 gap-2">
                     <span>Ver todos</span>
                     <i class="bi bi-arrow-right text-lg"></i>
@@ -126,56 +135,56 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
             <!--container cards eventos-->
             <div class="grid grid-cols-3 gap-5 mt-5">
                 <?php if ($resultado->num_rows === 0) : ?>
-                    <div class="flex col-span-4 flex-col justify-center items-center gap-4 py-10">
-                        <i class="bi bi-archive text-5xl text-gray-500"></i>
-                        <p class="text-2xl text-center text-gray-500">Nenhum evento disponivel no momento.</p>
-                    </div>
+                <div class="flex col-span-4 flex-col justify-center items-center gap-4 py-10">
+                    <i class="bi bi-archive text-5xl text-gray-500"></i>
+                    <p class="text-2xl text-center text-gray-500">Nenhum evento disponivel no momento.</p>
+                </div>
                 <?php else : ?>
-                    <?php while ($row = $resultado->fetch_assoc()) : ?>
-                        <!--card eventos-->
-                        <div class="card-eventos hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group/evento">
-                            <div class="img-container overflow-hidden">
-                                <img
-                                    class="object-cover group-hover/evento:scale-110 transition-transform duration-500"
-                                    src="<?= htmlspecialchars($row['link_img'] ?: $link_placeholder) ?>"
-                                    alt="Imagem do evento <?= htmlspecialchars($row['nome']) ?>"
-                                    onerror="this.onerror=null; this.src='<?= $link_placeholder ?>';">
-                                <?php if ($row['status'] == 0): ?>
-                                    <span class="tag-status bg-blue-100 text-blue-600">
-                                        Publicado
-                                    </span>
-                                <?php elseif ($row['status'] == 1): ?>
-                                    <span class="tag-status bg-green-100 text-green-600">
-                                        Concluido
-                                    </span>
-                                <?php elseif ($row['status'] == 2): ?>
-                                    <span class="tag-status bg-red-100 text-red-600">
-                                        Cancelado
-                                    </span>
-                                <?php endif; ?>
-                                <span class="tag-tipo">
-                                    <?= htmlspecialchars($row['tipo']) ?>
-                                </span>
-                            </div>
-                            <div class="txt-card">
-                                <h2><?= htmlspecialchars($row['nome']) ?></h2>
-                                <p class="descricao">
-                                    <?= htmlspecialchars($row['descricao']) ?>
-                                </p>
-                                <p>
-                                    <i class="bi bi-calendar"></i>
-                                    <span id="data-hora">
-                                        <?= htmlspecialchars($row['data_hora']) ?>
-                                    </span>
-                                </p>
-                                <p>
-                                    <i class="bi bi-geo-alt"></i>
-                                    <?= htmlspecialchars($row['endereco']) ?>
-                                </p>
-                                <p>
-                                    <i class="bi bi-people"></i>
-                                    <span>
-                                        <?php
+                <?php while ($row = $resultado->fetch_assoc()) : ?>
+                <!--card eventos-->
+                <div
+                    class="card-eventos hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group/evento">
+                    <div class="img-container overflow-hidden">
+                        <img class="object-cover group-hover/evento:scale-110 transition-transform duration-500"
+                            src="<?= htmlspecialchars($row['link_img'] ?: $link_placeholder) ?>"
+                            alt="Imagem do evento <?= htmlspecialchars($row['nome']) ?>"
+                            onerror="this.onerror=null; this.src='<?= $link_placeholder ?>';">
+                        <?php if ($row['status'] == 0): ?>
+                        <span class="tag-status bg-blue-100 text-blue-600">
+                            Publicado
+                        </span>
+                        <?php elseif ($row['status'] == 1): ?>
+                        <span class="tag-status bg-green-100 text-green-600">
+                            Concluido
+                        </span>
+                        <?php elseif ($row['status'] == 2): ?>
+                        <span class="tag-status bg-red-100 text-red-600">
+                            Cancelado
+                        </span>
+                        <?php endif; ?>
+                        <span class="tag-tipo">
+                            <?= htmlspecialchars($row['tipo']) ?>
+                        </span>
+                    </div>
+                    <div class="txt-card">
+                        <h2><?= htmlspecialchars($row['nome']) ?></h2>
+                        <p class="descricao">
+                            <?= htmlspecialchars($row['descricao']) ?>
+                        </p>
+                        <p>
+                            <i class="bi bi-calendar"></i>
+                            <span id="data-hora">
+                                <?= htmlspecialchars($row['data_hora']) ?>
+                            </span>
+                        </p>
+                        <p>
+                            <i class="bi bi-geo-alt"></i>
+                            <?= htmlspecialchars($row['endereco']) ?>
+                        </p>
+                        <p>
+                            <i class="bi bi-people"></i>
+                            <span>
+                                <?php
                                         // puxando quantos voluntarios tem nesse eventos
                                         $sql = "SELECT COUNT(*) FROM presencas WHERE id_evento = ?";
                                         $stmt = $conexao->prepare($sql);
@@ -185,32 +194,31 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
                                         $stmt->fetch();
                                         $stmt->close();
                                         ?>
-                                        <?= htmlspecialchars($presencas) ?>/<?= htmlspecialchars($row['meta_voluntarios']) ?>
-                                        Voluntários
-                                    </span>
-                                </p>
-                                <?php
+                                <?= htmlspecialchars($presencas) ?>/<?= htmlspecialchars($row['meta_voluntarios']) ?>
+                                Voluntários
+                            </span>
+                        </p>
+                        <?php
                                 $meta = (int)$row['meta_voluntarios'];
                                 $inscritos = (int)$presencas;
                                 $percentual = $meta > 0 ? round(($inscritos / $meta) * 100) : 0;
                                 ?>
-                                <div class="mt-5">
-                                    <p class="flex w-full items-center justify-between">
-                                        Inscrições
-                                        <span><?= $percentual ?>%</span>
-                                    </p>
-                                    <div class="container-barra">
-                                        <div class="barra"
-                                            style="width: <?= $percentual ?>%;"></div>
-                                    </div>
-                                </div>
-                                <p class="mt-5">
-                                    <span class="text-black font-bold">Objetivos: </span>
-                                    <?= htmlspecialchars($row['objetivos']) ?>
-                                </p>
+                        <div class="mt-5">
+                            <p class="flex w-full items-center justify-between">
+                                Inscrições
+                                <span><?= $percentual ?>%</span>
+                            </p>
+                            <div class="container-barra">
+                                <div class="barra" style="width: <?= $percentual ?>%;"></div>
                             </div>
                         </div>
-                    <?php endwhile; ?>
+                        <p class="mt-5">
+                            <span class="text-black font-bold">Objetivos: </span>
+                            <?= htmlspecialchars($row['objetivos']) ?>
+                        </p>
+                    </div>
+                </div>
+                <?php endwhile; ?>
                 <?php endif; ?>
             </div>
         </div>
@@ -236,28 +244,28 @@ $link_placeholder = 'https://blog.iprocess.com.br/wp-content/uploads/2021/11/pla
     </footer>
 </main>
 <script>
-    // formatando data e hora
-    document.querySelectorAll('[id="data-hora"]').forEach(span => {
-        const texto = span.textContent.trim();
-        const data = new Date(texto.replace(" ", "T"));
+// formatando data e hora
+document.querySelectorAll('[id="data-hora"]').forEach(span => {
+    const texto = span.textContent.trim();
+    const data = new Date(texto.replace(" ", "T"));
 
-        if (isNaN(data)) return; // evita erro se a data estiver inválida
+    if (isNaN(data)) return; // evita erro se a data estiver inválida
 
-        const formatador = new Intl.DateTimeFormat("pt-BR", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit"
-        });
-
-        const partes = formatador.formatToParts(data);
-        const resultado = `${partes.find(p => p.type === 'day').value} de ` +
-            `${partes.find(p => p.type === 'month').value} de ` +
-            `${partes.find(p => p.type === 'year').value} às ` +
-            `${partes.find(p => p.type === 'hour').value}:${partes.find(p => p.type === 'minute').value}`;
-
-        span.textContent = resultado;
+    const formatador = new Intl.DateTimeFormat("pt-BR", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
     });
+
+    const partes = formatador.formatToParts(data);
+    const resultado = `${partes.find(p => p.type === 'day').value} de ` +
+        `${partes.find(p => p.type === 'month').value} de ` +
+        `${partes.find(p => p.type === 'year').value} às ` +
+        `${partes.find(p => p.type === 'hour').value}:${partes.find(p => p.type === 'minute').value}`;
+
+    span.textContent = resultado;
+});
 </script>
 <?php require_once __DIR__ . "/../includes/fim.php"; ?>
