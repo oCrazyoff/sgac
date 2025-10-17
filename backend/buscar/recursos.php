@@ -11,7 +11,7 @@ if (!$id) {
 }
 
 // Prepara e executa a consulta
-$stmt = $conexao->prepare("SELECT id_evento, status, prioridade, meta_valor FROM doacoes WHERE id = ?");
+$stmt = $conexao->prepare("SELECT id_evento, status, prioridade, meta_valor AS meta FROM doacoes WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $resultado = $stmt->get_result();

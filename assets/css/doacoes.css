@@ -1,0 +1,17 @@
+@layer components {
+    .card-doacoes {
+        @apply flex items-center justify-between px-5 py-3 border-b border-b-borda;
+
+        &.status-baixo {
+            @apply border-l-5 border-l-green-500 bg-green-50;
+        }
+
+        &.status-medio {
+            @apply border-l-5 border-l-yellow-500 bg-yellow-50;
+        }
+
+        &.status-alto {
+            @apply border-l-5 border-l-red-500 bg-red-50;
+        }
+    }
+}
