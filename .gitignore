@@ -10,7 +10,7 @@ build/
 # Arquivos de ambiente (nunca versionar senhas!)
 .env
 *.env
-senhas.env
+db.env
 
 # Arquivos de sistema
 .DS_Store
