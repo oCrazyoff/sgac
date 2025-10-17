@@ -3,8 +3,8 @@ $n_valida = true;
 $titulo = "Eventos";
 require_once __DIR__ . "/../includes/inicio.php";
 
-// puxando os 3 ultimos eventos
-$sql = "SELECT * FROM eventos ORDER BY created_at DESC LIMIT 3";
+// puxando os 3 ultimos eventos publicados
+$sql = "SELECT * FROM eventos WHERE status = 0 OR status = 1 ORDER BY created_at DESC LIMIT 3";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
 $resultado = $stmt->get_result();

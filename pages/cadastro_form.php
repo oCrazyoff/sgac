@@ -44,7 +44,9 @@ require_once "includes/inicio.php";
             </div>
         </div>
         <button type="submit"
-            class="w-full cursor-pointer rounded-lg bg-blue-600 py-3 font-medium text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">Login</button>
+            class="w-full cursor-pointer rounded-lg bg-blue-600 py-3 font-medium text-white transition-colors
+            hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed
+            disabled:opacity-50">Cadastrar</button>
     </form>
 </main>
 <?php require_once "includes/fim.php"; ?>
